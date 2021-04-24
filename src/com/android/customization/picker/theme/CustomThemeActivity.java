@@ -339,6 +339,23 @@ public class CustomThemeActivity extends FragmentActivity implements
         }
     }
 
+
+    private class ColorStep extends ComponentStep<ColorOption> {
+
+        protected ColorStep(ThemeComponentOptionProvider<ColorOption> provider,
+                int position) {
+            super(R.string.color_component_title, provider, position);
+        }
+
+        @Override
+        CustomThemeComponentFragment createFragment(String title) {
+            return CustomThemeComponentFragment.newInstance(
+                    title,
+                    position,
+                    titleResId);
+        }
+    }
+
     private class ShapeStep extends ComponentStep<ShapeOption> {
 
         protected ShapeStep(ThemeComponentOptionProvider<ShapeOption> provider,
